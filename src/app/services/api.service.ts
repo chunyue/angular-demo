@@ -20,4 +20,8 @@ export class ApiService {
   put<T>(url: string, body: any, options: Options): Observable<T> {
     return this.httpClient.put<T>(url, body, options) as Observable<T>;
   }
+
+  delete(url: string): Observable<void> {
+    return this.httpClient.delete<void>(url);
+  }
 }

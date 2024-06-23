@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../../../types';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -18,6 +18,7 @@ export class EditProductComponent {
   isFileUploaded: boolean = false;
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private productsService: ProductsService
   ) {}
   ngOnInit(): void {
@@ -60,5 +61,16 @@ export class EditProductComponent {
 
   handleDelete() {
     // 處理刪除邏輯
+    this.productsService
+      .deleteProduct(`http://localhost:8080/products/${this.productId}`)
+      .subscribe({
+        error: (error) => {
+          console.log('刪除失敗', error);
+        },
+        complete: () => {
+          console.log('刪除完成');
+          this.router.navigate(['/']);
+        },
+      });
   }
 }
