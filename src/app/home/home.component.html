@@ -1,0 +1,11 @@
+<section class="content">
+  <div class="container">
+    <div class="list-group list-group-horizontal row">
+      <app-product
+        *ngFor="let product of products"
+        [product]="product"
+        class="list-group-item col-xs-12 col-sm-6 col-md-4 col-lg-4"
+      ></app-product>
+    </div>
+  </div>
+</section>
