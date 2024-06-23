@@ -1,6 +1,5 @@
 <section class="content">
   <div class="container">
-    <p>create-product works!</p>
     <form [formGroup]="createProductForm" (ngSubmit)="onsubmit()">
       <div class="row">
         <div class="col-md-6">
@@ -65,11 +64,10 @@
                 aria-label="產品描述"
               ></textarea>
             </div>
-            <p>Name: {{ createProductForm.value.productName }}</p>
             <div class="d-flex justify-content-end mt-3">
               <button
                 type="submit"
-                class="btn btn-primary mr-2"
+                class="btn btn-primary product-detail-btn"
                 [disabled]="!createProductForm.valid"
               >
                 新增
