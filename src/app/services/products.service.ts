@@ -17,19 +17,11 @@ export class ProductsService {
     return this.apiService.get(url, options);
   }
 
-  createProduct(
-    url: string,
-    body: any,
-    options: any
-  ): Observable<ProductsReponse> {
+  createProduct(url: string, body: any, options: any): Observable<Product> {
     return this.apiService.post(url, body, options);
   }
 
-  updateProduct(
-    url: string,
-    body: any,
-    options: any
-  ): Observable<Product> {
+  updateProduct(url: string, body: any, options: any): Observable<Product> {
     return this.apiService.put(url, body, options);
   }
 }

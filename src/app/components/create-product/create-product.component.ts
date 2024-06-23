@@ -5,8 +5,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ProductsReponse } from '../../../types';
+import { Product, ProductsReponse } from '../../../types';
 import { ProductsService } from '../../services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -16,7 +17,10 @@ import { ProductsService } from '../../services/products.service';
   styleUrl: './create-product.component.scss',
 })
 export class CreateProductComponent {
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private router: Router
+  ) {}
 
   createProductForm = new FormGroup({
     productName: new FormControl('', Validators.required),
@@ -36,8 +40,9 @@ export class CreateProductComponent {
         this.createProductForm.value,
         {}
       )
-      .subscribe((productsReponse: ProductsReponse) => {
-        console.log(productsReponse);
+      .subscribe((product: Product) => {
+        //轉址到show-product
+        this.router.navigate(['products', product.productId]);
       });
   }
 }
