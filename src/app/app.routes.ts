@@ -11,12 +11,12 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'create-product',
+    path: 'admin/products/create',
     title: 'Create Product',
     component: CreateProductComponent,
   },
   {
-    path: 'product/:productid',
+    path: 'products/:productid',
     title: 'Show Product',
     component: ShowProductComponent,
   },
