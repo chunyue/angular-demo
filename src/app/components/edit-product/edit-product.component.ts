@@ -53,7 +53,8 @@ export class EditProductComponent {
       .subscribe((product: Product) => {
         console.log('更新成功');
         console.log(product);
-        //TODO 轉址到show-product
+        //重新抓取更新後的資料,不經過路由重新跳轉
+        this.product = product;
       });
   }
 
