@@ -24,4 +24,12 @@ export class ProductsService {
   ): Observable<ProductsReponse> {
     return this.apiService.post(url, body, options);
   }
+
+  updateProduct(
+    url: string,
+    body: any,
+    options: any
+  ): Observable<Product> {
+    return this.apiService.put(url, body, options);
+  }
 }

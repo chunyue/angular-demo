@@ -1,1 +1,124 @@
-<p>edit-product works!</p>
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- 產品圖片 -->
+        <img
+          [src]="product.imageUrl || 'https://picsum.photos/300'"
+          class="img-fluid"
+          alt="產品圖片"
+        />
+      </div>
+      <div class="edit-pannel col-md-6">
+        <div class="col-md-12">
+          <!-- 產品名稱 -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">產品名稱</span>
+            <input
+              [(ngModel)]="product.productName"
+              type="text"
+              class="form-control"
+              aria-label="產品名稱"
+            />
+          </div>
+          <!-- 產品類別 -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">產品類別</span>
+            <select [(ngModel)]="product.category" class="form-select">
+              <option [ngValue]="null" disabled>請選擇類別</option>
+              <option value="FOOD">食品</option>
+              <option value="CAR">汽車</option>
+              <option value="BOOK">書籍</option>
+            </select>
+          </div>
+          <!-- 產品價格 -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">產品價格</span>
+            <input
+              [(ngModel)]="product.price"
+              type="number"
+              class="form-control"
+              aria-label="產品價格"
+            />
+          </div>
+          <!-- 庫存 -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">庫存量</span>
+            <input
+              [(ngModel)]="product.stock"
+              type="number"
+              class="form-control"
+              aria-label="庫存量"
+            />
+          </div>
+          <!-- 描述 -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">產品描述</span>
+            <textarea
+              [(ngModel)]="product.description"
+              class="form-control"
+              aria-label="產品描述"
+            ></textarea>
+          </div>
+          <!-- 選取的圖片 -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">產品圖片</span>
+            <div class="form-control">
+              <input
+                id="product-image"
+                type="file"
+                (change)="handleFileChange($event)"
+                accept="image/*"
+              />
+              @if (isFileUploaded){
+              <button
+                (click)="handleUpload(product.productId)"
+                class="btn btn-default btn-sm"
+              >
+                上傳圖片
+              </button>
+
+              }
+            </div>
+          </div>
+          <!-- 創建時間 -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">創建時間</span>
+            <input
+              [(ngModel)]="product.createdDate"
+              type="datetime"
+              class="form-control"
+              aria-label="創建時間"
+              disabled
+            />
+          </div>
+          <!-- 最後修改時間 -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">最後修改時間</span>
+            <input
+              [(ngModel)]="product.lastModifiedDate"
+              type="datetime"
+              class="form-control"
+              aria-label="最後修改時間"
+              disabled
+            />
+          </div>
+          <div class="d-flex justify-content-end mt-3">
+            <button
+              class="btn btn-primary product-detail-btn"
+              (click)="handleUpdate()"
+            >
+              修改
+            </button>
+            <button
+              class="btn btn-danger product-detail-btn"
+              (click)="handleDelete()"
+            >
+              刪除
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

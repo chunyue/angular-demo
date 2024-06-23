@@ -34,7 +34,12 @@
           <button class="btn btn-primary mr-2">購買</button>
         </div>
         <div class="edit-button product-detail-btn">
-          <button class="btn btn-light mr-2">修改資訊</button>
+          <button
+            class="btn btn-light mr-2"
+            [routerLink]="['/admin/products', product.productId, 'edit']"
+          >
+            修改資訊
+          </button>
         </div>
       </div>
     </div>
