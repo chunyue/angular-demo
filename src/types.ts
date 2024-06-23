@@ -45,3 +45,12 @@ export interface Product {
   createdDate: string;
   lastModifiedDate: string;
 }
+
+export interface RequestCreateProduct {
+  productName: string;
+  category: string;
+  price: number;
+  stock: number;
+  description: string;
+  imageUrl: string;
+}

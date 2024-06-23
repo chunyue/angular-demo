@@ -12,4 +12,12 @@ export class ProductsService {
   getProducts(url: string, options: any): Observable<ProductsReponse> {
     return this.apiService.get(url, options);
   }
+
+  createProduct(
+    url: string,
+    body: any,
+    options: any
+  ): Observable<ProductsReponse> {
+    return this.apiService.post(url, body, options);
+  }
 }
