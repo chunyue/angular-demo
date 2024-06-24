@@ -4,11 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PopupConfirmComponent } from '../popup-confirm/popup-confirm.component';
 
 @Component({
   selector: 'app-edit-product',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, PopupConfirmComponent],
   templateUrl: './edit-product.component.html',
   styleUrl: './edit-product.component.scss',
 })
@@ -16,11 +17,14 @@ export class EditProductComponent {
   productId: string | null = '';
   product: Product = {} as Product;
   isFileUploaded: boolean = false;
+  opration: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private productsService: ProductsService
-  ) {}
+  ) {
+    this.opration = '編輯';
+  }
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('productid');
 
